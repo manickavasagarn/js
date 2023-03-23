@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    h5{
+        margin-left: 10%;
+    }
+</style>
+<body>
+    <center>
+    <h1>JavaScript Number Methods</h1></center>
+    <div id="container">
+    <ul>
+
+    <li><h3>The toString() method</h3></li>
+    <h5>The toString() method returns a number as a string.</h5>
+    <label for="">Enter the Number</label>
+    <input type="text" name="" id="tostringv" oninput="tostringfun();">
+    <p id="msgtosrting"></p>
+
+    <hr><li><h3>The parseInt() method</h3></li>
+    <h5>parseInt() parses a string and returns a whole number. Spaces are allowed. Only the first number is returned:</h5>
+    <p id="numco"></p>
+
+    <hr><li><h3>The parseFloat() method</h3></li>
+    <h5>parseFloat() parses a string and returns a number. Spaces are allowed. Only the first number is returned:</h5>
+    <p id="floatmsg"></p>
+
+    <hr><li><h3>The toExponential() method</h3></li>
+    <h5>toExponential() returns a string, with a number rounded and written using exponential notation.</h5>
+    <label for="">Enter the Number</label>
+    <input type="text" name="" id="toexv" oninput="expo();">
+    <p id="msgex"></p>
+
+    <hr><li><h3>The toFixed() method</h3></li>
+    <h5>toFixed() returns a string, with the number written with a specified number of decimals:</h5>
+    <label for="">Enter the Number</label>
+    <input type="text" name="" id="tofixv" oninput="tofix();">
+    <p id="msgfix"></p>
+
+    <hr><li><h3>The toPrecision() method</h3></li>
+    <h5>toPrecision() returns a string, with a number written with a specified length:</h5>
+    <label for="">Enter the Number</label>
+    <input type="text" name="" id="toprev" oninput="topre();">
+    <p id="msgpre"></p>
+
+    <hr><li><h3>The Number() method</h3></li>
+    <h5>The Number() method can be used to convert JavaScript variables to numbers:</h5>
+    <p id="msgnum"></p>
+
+    <hr><li><h3>The Number() method with date</h3></li>
+    <h5>Number() can also convert a date to a number.</h5>
+    <p id="datenum"></p>
+
+    <hr><li><h3>The isInteger() method</h3></li>
+    <h5>The Number.isInteger() method returns true if the argument is an integer.</h5>
+    <label for="">Enter the Number</label>
+    <input type="text" name="" id="isnum" oninput="isnum();">
+    <p id="isnummsg"></p>
+    <center><h2>Thank You</h2></center>
+</ul>
+</div>
+
+</body>
+<script>
+    function tostringfun(){
+        var x = document.getElementById("tostringv").value;
+        document.getElementById("msgtosrting").innerText=x.toString()+ " it is string bro ! ";
+    }
+
+    function numco(){
+            document.getElementById("numco").innerHTML = 
+        "parseInt('-10') -> "+parseInt("-10") + "<br>" +
+        "parseInt('-10.763') -> "+parseInt("-10.763") + "<br>" +
+        "parseInt('10') -> "+parseInt("10") + "<br>" +
+        "parseInt('10.763') -> "+parseInt("10.763") + "<br>" +
+        "parseInt('10 6') -> "+parseInt("10 6") + "<br>" +  
+        "parseInt('10 years') -> "+parseInt("10 years") + "<br>" +  
+        "parseInt('years 10') -> "+parseInt("years 10");  
+    }
+    numco();
+    function floatco(){
+        document.getElementById("floatmsg").innerHTML = 
+        "parseFloat('10') -> "+parseFloat("10") + "<br>" +
+        "parseFloat('10.33') -> "+parseFloat("10.33") + "<br>" +
+        "parseFloat('10 6') -> "+parseFloat("10 6") + "<br>" +  
+        "parseFloat('10 years') -> "+parseFloat("10 years") + "<br>" +
+        "parseFloat('years 10') -> "+parseFloat("years 10");
+    }
+    floatco();
+    function expo(){
+        let x = parseFloat(document.getElementById('toexv').value);
+        document.getElementById("msgex").innerHTML =
+        "toExponential() -> " + x.toExponential() + "<br>" + 
+        "toExponential(2) -> " + x.toExponential(2) + "<br>" + 
+        "toExponential(4) -> " + x.toExponential(4) + "<br>" + 
+        "toExponential(6) -> " + x.toExponential(6);
+    }
+
+    function tofix(){
+        let x = parseFloat(document.getElementById("tofixv").value);
+        document.getElementById("msgfix").innerHTML =
+        "x.toFixed(0) -> " + x.toFixed(0) + "<br>" +
+        "x.toFixed(2) -> " +x.toFixed(2) + "<br>" +
+        "x.toFixed(4) -> " +x.toFixed(4) + "<br>" +
+        "x.toFixed(6) -> " +x.toFixed(6);
+    }
+
+    function topre(){
+        let x = parseFloat(document.getElementById("toprev").value);
+        document.getElementById("msgpre").innerHTML = 
+        "x.toPrecision() -> "+x.toPrecision() + "<br>" +
+        "x.toPrecision(2) -> "+x.toPrecision(2) + "<br>" +
+        "x.toPrecision(4) -> "+x.toPrecision(4) + "<br>" +
+        "x.toPrecision(6) -> "+x.toPrecision(6); 
+    }
+
+    function num(){
+        document.getElementById("msgnum").innerHTML = 
+        "Number(true) -> "+Number(true) + "<br>" +
+        "Number(false) -> "+Number(false) + "<br>" +
+        "Number(10) -> "+Number("10") + "<br>" +
+        "Number(10.33) -> "+Number("10.33") + "<br>" + 
+        "Number(10,33) -> "+Number("10,33") + "<br>" +
+        "Number(10 33) -> "+Number("10 33") + "<br>" +
+        "Number(John) -> "+Number("John");
+    }
+    num();
+
+    function datenum(){
+        let x = new Date("2017-09-30");
+        document.getElementById("datenum").innerHTML = 
+        "date -> "+ x + "<br>"+
+        "Number(date) -> "+Number(x); 
+    }
+    datenum();
+
+    function isnum(){
+        var x=parseInt(document.getElementById('isnum').value);
+        document.getElementById("isnummsg").innerHTML =
+        "Your enter is number ? "+Number.isInteger(x);
+    }
+</script>
+</html>

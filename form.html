@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>Form Validetion</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>Vehicle Rent Details</h1>
+		<div id="card">
+			<form>
+				<div>
+				<label>Cus_no</label>
+				<input type="number" id="cusno"><br><br>
+				</div>
+				<span id="cusmsg"></span>
+				<div>
+				<label>Vehicle_no</label>
+				<input type="text" id="vehicleno"><br><br>
+				</div>
+				<span id="vemsg"></span>
+				<div>
+				<label>Date</label>
+				<input type="date" id="date"><br><br>
+				</div>
+				<span id="datemsg"></span>
+				<div>
+				<label>kilometer</label>
+				<input type="number" oninput="amount();" id="km"><br><br>
+				</div>
+				<span id="kmmsg"></span>
+				<div>
+				<label>Rent_per_Km</label>
+				<input type="number" oninput="amount();" id="rent"><br><br>
+				</div>
+				<span id="rentmsg"></span>
+				<div>
+				<label>Base_amount</label>
+				<input type="number" id="base" readonly><br><br>
+				</div>
+				<div>
+				<label>Total_amount</label>
+				<input type="number" id="total" readonly><br><br>
+				</div>
+				<div>
+				<label>Email Id</label>
+				<input type="email" id="email"><br><br>
+				</div>
+				<span id="mailmsg"></span>
+				<div>
+				<label>Phone Number</label>
+				<input type="number" id="number"><br><br>
+				</div>
+				<span id="nummsg"></span>
+				<input type="button" value="Submit" onclick="check();" id="save">
+ 			</form>
+		</div>
+	</body>
+	<script>
+		function check(){
+			var cus=document.getElementById('cusno').value;			
+			var vehicleno=document.getElementById('vehicleno').value;
+			var date=document.getElementById('date').value;
+			var km=document.getElementById('km').value;
+			var rent=document.getElementById('rent').value;
+			var mail=document.getElementById('email').value;
+			var num=document.getElementById('number').value;
+			if(cus == ""){
+				document.getElementById('cusmsg').innerHTML="Please fill the cus no";
+			}else{
+				document.getElementById('cusmsg').innerHTML="";
+			}
+			if(vehicleno == ""){
+				document.getElementById('vemsg').innerHTML="Please fill the vehicle no";
+			}else if(vehicleno.length!=10){
+				document.getElementById('vemsg').innerHTML="Enter valied vehicle No";
+			}else{
+				document.getElementById('vemsg').innerHTML="";
+			}
+			if(date == ""){
+				document.getElementById('datemsg').innerHTML="Please fill the Date";
+			}else{
+				document.getElementById('datemsg').innerHTML="";
+			}
+			if(km == ""){
+				document.getElementById('kmmsg').innerHTML="Please fill the km";
+			}else{
+				document.getElementById('kmmsg').innerHTML="";
+			}
+			if(rent == ""){
+				document.getElementById('rentmsg').innerHTML="Please fill the Rent amount";
+			}else{
+				document.getElementById('rentmsg').innerHTML="";
+			}
+			if(mail == ""){
+				document.getElementById('mailmsg').innerHTML="Please fill the mail id ";
+			}else if(mail.indexOf("@")==-1){
+				document.getElementById('mailmsg').innerHTML="enter valied mail";
+			}else{
+				document.getElementById('mailmsg').innerHTML="";
+			}
+			if(num == ""){
+				document.getElementById('nummsg').innerHTML="Please fill the Number";
+			}else if(num.length != 10){
+				document.getElementById('nummsg').innerHTML="Please Enter valied number";
+			}else{
+				document.getElementById('nummsg').innerHTML="";
+			}
+			
+		}
+		
+		function amount(){
+			var km=document.getElementById('km').value;
+			var rent=document.getElementById('rent').value;
+			var total;
+			if(km != "" & rent != ""){
+				total=km*rent;
+				document.getElementById('base').value=total;
+				document.getElementById('total').value=total;
+			}else{
+				document.getElementById('base').value="";
+				document.getElementById('total').value="";
+			}
+		}
+	</script>
+</html>
