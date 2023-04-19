@@ -1,0 +1,50 @@
+body{
+	background-image: linear-gradient(to right, red , yellow);
+}
+
+#card{
+	margin: auto;
+    width: 30%;
+    background-color: burlywood;
+    margin-top: 5%;
+    border: 1px solid blue;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 17px -20px 8px red;
+}
+	
+input{
+	width: 50%;
+    float: right;
+    height: 5%;
+    border-radius: 5px;
+}
+label{
+	float:left;
+}
+
+div{
+	margin: 10px;
+}
+
+h1{
+	text-align:center;
+	margin-top:5%;
+}
+
+#save{
+	background-color: blue;
+    color: white;
+    float: none;
+    width: 100%;
+}
+ #save:hover{
+	 background-color: red;
+    color: white;
+    float: none;
+    width: 100%;
+ }
+ 
+ span{
+		color:red;
+ }

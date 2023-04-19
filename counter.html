@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,tr,th,td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td{
+        text-align: center;
+    }
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>State of health</th>
+                <th colspan="2">fasting Value</th>
+                <th>After Remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <th>minimum</th>
+                <th>Normal</th>
+                <th>2 Hours of eating</th>
+            </tr>
+            <tr>
+                <td>healthy</td>
+                <td rowspan="2">70</td>
+                <td>healthy</td>
+                <td>less than 140</td>
+            </tr>
+            <tr>
+                <td>pre-diabetes</td>
+               
+                <td>126</td>
+                <td>140 to 200</td>
+            </tr>
+            <tr>
+                <td>diabetes</td>
+                <td>more than 126</td>
+                <td>not applicable</td>
+                <td>more than 200</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="timer"></div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        var place= document.getElementById("timer");
+        var count10 = setTimeout(function(){
+                place.innerText="10";
+                count9;
+        },2000);
+        var count9 = setTimeout(function(){
+                place.innerText="9";
+                count8();
+        },2000);
+        var count8 = setTimeout(function(){
+                place.innerText="8";
+                count7();
+        },2000);
+        var count7 = setTimeout(function(){
+                place.innerText="7";
+                count6();
+        },2000);
+        var count6 = setTimeout(function(){
+                place.innerText="6";
+                count5();
+        },2000);
+        var count5 = setTimeout(function(){
+                place.innerText="5";
+                count4();
+        },2000);
+        var count4 = setTimeout(function(){
+                place.innerText="4";
+                count3();
+        },2000);
+        var count3 = setTimeout(function(){
+                place.innerText="3";
+                count2();
+        },2000);
+
+        var count2 = setTimeout(function(){
+                place.innerText="2";
+                count1();
+        },2000);
+        var count1 = setTimeout(function(){
+                place.innerText="1";
+                count();
+        },2000);
+        var count = setTimeout(function(){
+                place.innerText="Happy brithday!";
+        },2000);
+
+
+    </script>
+</body>
+</html>
