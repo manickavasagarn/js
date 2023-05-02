@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .scrollme {
+    overflow-x: auto;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 text-center">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2>Survey Form</h2>
+                    </div>
+                    <div class="card-body bg-info">
+                        <form id="myform">
+                            <input type="hidden" name="" id="editid" value="">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="name">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="email">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="phone">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Password</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="password">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>State</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="state">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>City</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="city">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Country</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="country">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Pincode</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="pincode">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Education</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" name="" class="form-control" id="education">
+                                </div>  
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="SAVE" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card mt-5">
+                    <div class="scrollme">
+                    <table class="table table-hover table-responsive p-0 " id="mytable">
+                        <thead>
+                            <tr class="text-center">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Password</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Pincode</th>
+                                <th>Education</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebody">
+
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <div class="modal fade" id="conformdelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Delete Alert</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <input type="hidden" name="" id="deleteid" value="">
+                      <p>Conform To Delete The Row</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-danger" id="deleteme">Conform</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+    async function getdata(){
+        try {
+            var data = await fetch("https://643ec535c72fda4a0b00990c.mockapi.io/user");
+            var dataobj=await data.json();
+            var tbody=document.getElementById("tablebody");
+            tbody.innerHTML="";
+            dataobj.forEach(element => {
+                var tr=document.createElement('tr');
+                //id
+                var id=document.createElement('td');
+                id.innerText=element.id;
+                tr.appendChild(id);
+                //name
+                var name=document.createElement('td');
+                name.innerText=element.name;
+                tr.appendChild(name);
+                //email
+                var email=document.createElement('td');
+                email.innerText=element.email;
+                tr.appendChild(email);
+                //phone
+                var phone=document.createElement('td');
+                phone.innerText=element.phone;
+                tr.appendChild(phone);
+                //password
+                var password=document.createElement('td');
+                password.innerText=element.password;
+                tr.appendChild(password);
+                //state
+                var state=document.createElement('td');
+                state.innerText=element.state;
+                tr.appendChild(state);
+                //city
+                var city=document.createElement('td');
+                city.innerText=element.city;
+                tr.appendChild(city);
+                //country
+                var country=document.createElement('td');
+                country.innerText=element.country;
+                tr.appendChild(country);
+                //pincode
+                var pincode=document.createElement('td');
+                pincode.innerText=element.pincode;
+                tr.appendChild(pincode);
+                //education
+                var education=document.createElement('td');
+                education.innerText=element.education;
+                tr.appendChild(education);
+                //button one
+                var button1 = document.createElement('td');
+                var b1=document.createElement('button');
+                b1.innerText="Edit";
+                b1.setAttribute('class','btn btn-info');
+                button1.appendChild(b1);
+                b1.addEventListener('click',function(){
+                    filldata(element.id);
+                })
+                tr.appendChild(button1);
+                //button two
+                var button2 = document.createElement('td');
+                var b2=document.createElement('button');
+                b2.innerText="Delete";
+                b2.setAttribute('class','btn btn-danger');
+                button2.appendChild(b2);
+                b2.addEventListener('click',function(){
+                    filldelete(element.id);
+                })
+                tr.appendChild(button2);
+                tbody.appendChild(tr);
+            });
+
+        } catch (error) {
+            console.error(error);
+        }
+        
+    }
+
+    function filldelete(id){
+        document.getElementById('deleteid').value=id;
+        $("#conformdelete").modal("show");
+    }
+
+    document.getElementById("deleteme").addEventListener("click",async function(){
+        var id=document.getElementById("deleteid").value;
+        document.getElementById("deleteid").value="";
+        $("#conformdelete").modal("hide");
+        try {
+            var request=await fetch("https://643ec535c72fda4a0b00990c.mockapi.io/user/"+id,{
+                method:"delete"
+            });
+            getdata();
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+    document.getElementById("myform").addEventListener('submit',async function(e){
+            e.preventDefault();
+            var id=document.getElementById('editid').value;
+            var data={
+                name:document.getElementById('name').value,
+                email:document.getElementById('email').value,
+                phone:document.getElementById('phone').value,
+                password:document.getElementById('password').value,
+                state:document.getElementById('state').value,
+                city:document.getElementById('city').value,
+                country:document.getElementById('country').value,
+                pincode:document.getElementById('pincode').value,
+                education:document.getElementById('education').value
+            }
+            document.getElementById('name').value="";
+            document.getElementById('email').value="";
+            document.getElementById('phone').value="";
+            document.getElementById('password').value="";
+            document.getElementById('state').value="";
+            document.getElementById('city').value="";
+            document.getElementById('country').value="";
+            document.getElementById('pincode').value="";
+            document.getElementById('education').value="";
+            document.getElementById('editid').value="";
+            try {
+                if(id==""){
+                    var request=await fetch('https://643ec535c72fda4a0b00990c.mockapi.io/user',{
+                    method:'post',
+                    body:await JSON.stringify(data),
+                    headers:{
+                        'Content-type':'application/json'
+                    }
+                    });
+                }else{
+                    var request=await fetch('https://643ec535c72fda4a0b00990c.mockapi.io/user/'+id,{
+                    method:'put',
+                    body:await JSON.stringify(data),
+                    headers:{
+                        'Content-type':'application/json'
+                    }
+                    });
+                }
+                
+                getdata();
+            } catch (error) {
+                console.error(error);
+            }
+            
+    });
+
+    async function filldata(id){
+        try {
+            var data= await fetch("https://643ec535c72fda4a0b00990c.mockapi.io/user/"+id);
+            var dataobj = await data.json();
+            console.log(dataobj);
+            document.getElementById('name').value=dataobj.name;
+            document.getElementById('email').value=dataobj.email;
+            document.getElementById('phone').value=dataobj.phone;
+            document.getElementById('password').value=dataobj.password;
+            document.getElementById('state').value=dataobj.state;
+            document.getElementById('city').value=dataobj.city;
+            document.getElementById('country').value=dataobj.country;
+            document.getElementById('pincode').value=dataobj.pincode;
+            document.getElementById('education').value=dataobj.education;
+            document.getElementById('editid').value=dataobj.id;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    window.onload=function(){
+        getdata();
+    }
+</script>
+</html
