@@ -32,6 +32,7 @@
         return data.json();
     })
     .then(function(dataobj){
+        console.log(dataobj);
         var body=document.body;
         dataobj.forEach(element => {
             var box=document.createElement('div');

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        border: 1px solid black;
+        margin: 0;
+        height: 70px;
+        text-align: center;
+        width: 70px;
+    }
+</style>
+<body>
+    <!-- <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table> -->
+    <script>
+        //table created
+        var tab = document.createElement("table");
+        var count=1;
+        for(var i=0;i<3;i++){
+            //tr created
+            var tr=document.createElement("tr");
+            for(var j=0;j<3;j++){
+                //td created and add id , class 
+                var td1=document.createElement("td");
+                td1.setAttribute('id',count);
+                td1.setAttribute('class','box');
+                td1.addEventListener("click",draw);
+                td1.myParam=count;
+                tr.appendChild(td1);
+                count++;
+            }
+            tab.appendChild(tr);
+        }
+        //table append into the body
+        document.body.appendChild(tab);
+        
+        var flag=1;
+        //draw the symbol on the box
+        function draw(td){
+            ele= document.getElementById(td.currentTarget.myParam);
+            if(ele.innerText==""){
+                if(flag==1){
+                    ele.innerText="x";
+                    flag=0;
+                }else{
+                    ele.innerText="o";
+                    flag=1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

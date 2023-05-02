@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hangman game</title>
+</head>
+<style>
+    .container{
+        text-align: center;
+    margin-top: 100px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Hangman Game</h1>
+        <div>
+            <img src="img/0.jpg" id="hangmanimgage" alt="">
+        </div>
+        <div>
+            <span id="msg"></span>
+        </div>
+        <div id="latter"></div><br><br>
+        <div id="buttons"></div>
+    </div>
+</body>
+<script>
+    var latarr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    var arr=['apple','banana','orange','mango','grapes','watermelon','vasagar'];
+    var word=arr[Math.floor(Math.random() * arr.length)];
+    genline(word);
+    genbutton();
+
+
+    function genline(word){
+        var latter=document.getElementById('latter');
+        for(var i=0;i<word.length;i++){
+            var line=document.createElement('span');
+            line.setAttribute('id','l'+i);
+            line.innerText=' _';
+            latter.appendChild(line);
+        }
+    }
+
+    function genbutton(){
+        var node=document.getElementById("buttons");
+        for(var i=0;i<latarr.length;i++){
+            var ele=document.createElement("button");
+            ele.innerText=latarr[i];
+            ele.setAttribute("id",latarr[i]);
+            ele.style.backgroundColor="blue";
+            ele.style.color="white";
+            ele.style.margin="3px";
+            ele.addEventListener("click",check);
+            ele.myParam=latarr[i];
+            node.appendChild(ele);
+        }
+    }
+    console.log(word);
+    var count=0;
+    function check(lat){
+        var latter=lat.currentTarget.myParam;
+        var flag=0;
+        for(var i=0;i<word.length;i++){
+            if(word[i]===latter){
+                flag++;
+                document.getElementById('l'+i).innerText=latter;
+            }
+        }
+        if(flag==0){
+           var img= document.getElementById('hangmanimgage');
+           img.setAttribute("src","img/"+(count+1)+".jpg");
+           count++;
+        }
+        
+        if(count==6){
+            document.getElementById("msg").innerText="game over well try and the word is "+word;
+            disbut();
+        }
+
+        var but=document.getElementById(latter);
+        but.disabled=true;
+        but.style.backgroundColor="aquamarine";
+        but.style.color="black";
+        iswin();
+    }
+
+    function disbut(){
+        for(var i=0;i<=latarr.length;i++){
+            var but=document.getElementById(latarr[i]);
+            but.disabled=true;
+            but.style.backgroundColor="aquamarine";
+            but.style.color="black";
+        }
+    }
+
+    function iswin(){
+        var flag=0;
+        for(var i=0;i<word.length;i++){
+            var latt=document.getElementById('l'+i);
+            if(latt.innerText==" _"){
+                flag=1;
+            }
+        }
+        if(flag==0){
+            document.getElementById("msg").innerText="very good you find the word ! ";
+            disbut();
+        }
+    }
+</script>
+</html>
